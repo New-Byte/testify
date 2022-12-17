@@ -2,8 +2,10 @@ import React,{useState} from 'react'
 import styles from '../../my-style.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 const Login=() => { 
+    const navigate = useNavigate();
 	const [username,setUsername]=useState(""); 
 	const [passwd,setPasswd]=useState("");
     //var [info,setPosts]=useState(""); 
@@ -24,6 +26,7 @@ const Login=() => {
                     toast.success(data.msg, {
                         position: toast.POSITION.TOP_CENTER
                     });
+                    navigate("/Home");
                 } else {
                     toast.error(data.msg, {
                         position: toast.POSITION.TOP_CENTER
