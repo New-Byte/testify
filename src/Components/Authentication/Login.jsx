@@ -63,7 +63,7 @@ const Login=() => {
                 </div>  
                 <button type="submit" className={styles.btn}>Login</button>
                 <ToastContainer />
-                <a href='#'>Forgot Password?</a>
+                <a href='/Forgot_password'>Forgot Password?</a>
             </div>
 		</form>
 	</div>
