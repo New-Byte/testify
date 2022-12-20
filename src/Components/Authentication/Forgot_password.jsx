@@ -41,12 +41,12 @@ const ForgotPassword = () => {
         e.preventDefault();
         const info = {
             username: username,
-            resetpasslink: 'http://localhost:3000'
+            resetpasslink: 'http://localhost:3000/Reset_password'
         };
 		addPosts(info);
 	}
     return(
-        <div>
+        <div className={styles.bgnd}>
             <form action="" onSubmit={submitThis}> 
                 <div className={styles.loginbox}>
                     <div className={styles.textbox}> 

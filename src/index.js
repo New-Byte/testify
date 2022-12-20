@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import Home from './Components/Home/Home';
 import Forgot_Passwd_Success from './Components/Authentication/Forgot_Passwd_Success';
 import ForgotPassword from './Components/Authentication/Forgot_password';
+import ResetPassword from './Components/Authentication/Reset_password';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,6 +18,7 @@ root.render(
             <Route path="Home" element={<Home />}></Route>
             <Route path="Forgot_password" element={<ForgotPassword />}></Route>
             <Route path="Forgot_Passwd_Success" element={<Forgot_Passwd_Success />}></Route>
+            <Route path="Reset_password" element={<ResetPassword />}></Route>
           </Routes>
     </BrowserRouter>
   </React.StrictMode>
