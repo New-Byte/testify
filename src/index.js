@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Home from './Components/Home/Home';
+import Home from './Components/Home_Page/Home';
 import Forgot_Passwd_Success from './Components/Authentication/Forgot_Passwd_Success';
 import ForgotPassword from './Components/Authentication/Forgot_password';
 import ResetPassword from './Components/Authentication/Reset_password';
