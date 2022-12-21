@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
   return (
     <div>
-      <h1>Home Page</h1>
+      <img src="/bg.jpg" height="600px" alt="Web Under Construction" />
     </div>
   );
 };

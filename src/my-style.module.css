@@ -92,3 +92,16 @@ body {
     background-color: #4CAF50;
     color: white;
 }
+.policy{
+	font-family: sans-serif;
+}
+.policy h4 {
+	font-size: 16px;
+	float: left;
+	color: #046A12;
+}
+.policy ul li {
+	float: left;
+	font-size: 14px;
+	list-style-type: square;
+}

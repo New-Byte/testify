@@ -118,6 +118,16 @@ const ResetPassword = () => {
                     </div> 
       
                     <button type="submit" className={styles.btn}>Reset Password</button>
+                    <br/>
+                    <div className={styles.policy}>
+                        <h4>Password Policy:</h4>
+                        <br/>
+                        <ul>
+                            <li>Password must be <b>8 characters</b> long.</li>
+                            <li>Password must cantain at least one <b>Upper Case Letter</b>, at least one <b>Number</b> and at least one <b>Spacial Character</b>.</li>
+                            <li>Both the passwords must match.</li>
+                        </ul>
+                    </div>
                     <ToastContainer />
                 </div>
             </form>
