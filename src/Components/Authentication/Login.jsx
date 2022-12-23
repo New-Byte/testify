@@ -10,7 +10,7 @@ const Login=() => {
 	const [passwd,setPasswd]=useState("");
     //var [info,setPosts]=useState(""); 
     const addPosts = async (info) => {
-        await fetch('http://localhost:5000/backend/authentication/login', {
+        await fetch(`${process.env.REACT_APP_node_server}/backend/authentication/login`, {
             method: 'POST',
             body: JSON.stringify(info),
             headers: {

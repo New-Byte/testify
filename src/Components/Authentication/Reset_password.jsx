@@ -23,7 +23,7 @@ const ResetPassword = () => {
         }
     }
     const addPosts = async (info) => {
-        await fetch(`http://localhost:5000/backend/password_reset/${userId}/${token}`, {
+        await fetch(`${process.env.REACT_APP_node_server}/backend/password_reset/${userId}/${token}`, {
             method: 'POST',
             body: JSON.stringify(info),
             headers: {
@@ -104,17 +104,17 @@ const ResetPassword = () => {
                 <div className={styles.loginbox}>
                     <div className={styles.textbox}> 
                         <i className={"fa fa-user"} aria-hidden="true"></i>
-                        <input type="text" name="username" id="username" value={username} placeholder="Username" onChange={(e)=>setUsername(e.target.value)}/> 
+                        <input type="text" name="username" id="username" value={username} placeholder="Username" required="true" onChange={(e)=>setUsername(e.target.value)}/> 
                     </div> 
                     <div className={styles.textbox}> 
                         <i className={"fa fa-lock"} aria-hidden="true"></i>
-                        <input type="password" name="password" id="password" value={password} placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/> 
+                        <input type="password" name="password" id="password" value={password} placeholder="Password" required="true" onChange={(e)=>setPassword(e.target.value)}/> 
                     </div> 
                     
                     <p><input type="checkbox" onClick={viewPasswd} />Show Password</p>
                     <div className={styles.textbox}> 
                         <i className={"fa fa-lock"} aria-hidden="true"></i>
-                        <input type="password" name="password2" id="password2" value={password2} placeholder="Confirm Password" onChange={(e)=>setPassword2(e.target.value)}/> 
+                        <input type="password" name="password2" id="password2" value={password2} placeholder="Confirm Password" required="true" onChange={(e)=>setPassword2(e.target.value)}/> 
                     </div> 
       
                     <button type="submit" className={styles.btn}>Reset Password</button>

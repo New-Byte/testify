@@ -8,7 +8,7 @@ const ForgotPassword = () => {
     const navigate = useNavigate();
 	const [username,setUsername]=useState("");
     const addPosts = async (info) => {
-        await fetch('http://localhost:5000/backend/forgot_password', {
+        await fetch(`${process.env.REACT_APP_node_server}/backend/forgot_password`, {
             method: 'POST',
             body: JSON.stringify(info),
             headers: {
@@ -41,7 +41,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         const info = {
             username: username,
-            resetpasslink: 'http://localhost:3000/Reset_password'
+            resetpasslink: `${process.env.REACT_APP_react_server}/Reset_password`
         };
 		addPosts(info);
 	}
