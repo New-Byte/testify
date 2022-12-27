@@ -47,23 +47,37 @@ const Login=() => {
         };
 		addPosts(info);
 	}
+    const Redirect = () => {
+        navigate('/Forgot_password');
+    }
+    const showPassword = () => {
+        var x = document.getElementById('lock');
+        var y = document.getElementById('passwd');
+        if(y.type === "password"){
+            x.className = "fa fa-unlock";
+            y.type = "text";
+        } else{
+            y.type = "password";
+            x.className = "fa fa-lock";
+        }
+    }
 	return(
 	<div>
 		<form action="" onSubmit={submitThis}> 
             <div className={styles.loginbox}>
                 <h1>Login</h1>
                 <div className={styles.textbox}> 
-                    <i className={"fa fa-user"} aria-hidden="true"></i>
+                    <i className={"fa fa-user"} aria-hidden="true" title='Enter Username'></i>
                     <input type="text" name="username" id="username" value={username} placeholder="Username" onChange={(e)=>setUsername(e.target.value)}/> 
                 </div> 
 
-                <div className={styles.textbox}> 
-                    <i className={"fa fa-lock"} aria-hidden="true"></i>
+                <div className={styles.textbox}>
+                    <i className={"fa fa-lock"} aria-hidden="true" onClick={showPassword} title='View Password' id='lock'></i>
                     <input type="password" name="passwd" id="passwd" value={passwd} placeholder="Password" onChange={(e)=>setPasswd(e.target.value)}/> 
                 </div>  
-                <button type="submit" className={styles.btn}>Login</button>
+                <button type="submit" className={styles.btn} title='Click here to login'>Login</button>
                 <ToastContainer />
-                <a href='/Forgot_password'>Forgot Password?</a>
+                <a href='#' onClick={Redirect}>Forgot Password?</a>
             </div>
 		</form>
 	</div>

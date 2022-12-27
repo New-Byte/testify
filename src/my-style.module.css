@@ -7,7 +7,8 @@ body {
 .bgnd {
 		/*background-image: linear-gradient(45deg, #050646, #13566F);*/
   		/*background-image: linear-gradient(135deg, #A81905, #FCFC0D);*/
-  		background-image: linear-gradient(135deg, #00FFFF, #FF00FF, #FCFC0D);
+  		/*background-image: linear-gradient(135deg, #00FFFF, #FF00FF, #FCFC0D);*/
+		background-image: linear-gradient(135deg, #010a35, #4b025e, #480241);
 		background-color: #282c34;
 		min-height: 100vh;
 		display: flex;
@@ -27,8 +28,8 @@ body {
 	padding: 30px;
 	background-color: white;
 	color: black;
-	border-radius: 12px;
-	box-shadow: 10px 10px 5px #585A5A;
+	border-radius: 2px;
+	/*box-shadow: 10px 10px 5px #3c3b3b;*/
 }
 .loginbox p{
 	font-size: small;
