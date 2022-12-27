@@ -23,10 +23,11 @@ const Login=() => {
                 console.log(data);
                 if(data.success){
                     console.log(data.msg);
+                    console.log(data.data);
                     toast.success(data.msg, {
                         position: toast.POSITION.TOP_CENTER
                     });
-                    navigate("/Home");
+                    navigate("/Home", {state: data.data});
                 } else {
                     toast.error(data.msg, {
                         position: toast.POSITION.TOP_CENTER
