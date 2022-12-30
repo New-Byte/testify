@@ -8,6 +8,7 @@ import Forgot_Passwd_Success from './Components/Authentication/Forgot_Passwd_Suc
 import ForgotPassword from './Components/Authentication/Forgot_password';
 import ResetPassword from './Components/Authentication/Reset_password';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
