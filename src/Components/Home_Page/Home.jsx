@@ -7,7 +7,7 @@ const Home = () => {
   if(location.state.user_role === 'admin'){
     return (
       <div>
-        <Header user_full_name={location.state.user_full_name}/>
+        <Header user_full_name={location.state.user_full_name} token={location.state.token}/>
       </div>
     );
 

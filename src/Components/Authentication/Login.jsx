@@ -3,11 +3,13 @@ import styles from '../../my-style.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 
 const Login=() => { 
     const navigate = useNavigate();
 	const [username,setUsername]=useState(""); 
 	const [passwd,setPasswd]=useState("");
+    const [cookies, setCookie] = useCookies("");
     //var [info,setPosts]=useState(""); 
     const addPosts = async (info) => {
         await fetch(`${process.env.REACT_APP_node_server}/backend/authentication/login`, {
@@ -24,6 +26,9 @@ const Login=() => {
                 if(data.success){
                     console.log(data.msg);
                     console.log(data.data);
+                    let threedays = new Date();
+                    threedays.setDate(threedays.getDate()+3);
+                    setCookie('userData', data.data.token, { path: '/', expires: threedays });
                     toast.success(data.msg, {
                         position: toast.POSITION.TOP_CENTER
                     });

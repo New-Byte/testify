@@ -9,13 +9,14 @@ import ForgotPassword from './Components/Authentication/Forgot_password';
 import ResetPassword from './Components/Authentication/Reset_password';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { CookiesProvider } from "react-cookie";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
           <Routes>
-            <Route index element={<App />}></Route>
+            <Route index element={<CookiesProvider><App /></CookiesProvider>}></Route>
             <Route path="Home" element={<Home />}></Route>
             <Route path="Forgot_password" element={<ForgotPassword />}></Route>
             <Route path="Forgot_Passwd_Success" element={<Forgot_Passwd_Success />}></Route>

@@ -214,3 +214,19 @@ body {
 	float: right;
 }
 
+.logout {
+	position: absolute;
+	left: 90%;
+	padding: 2px;
+	font-family: sans-serif;
+	font-size: 18px;
+	color: rgb(151, 151, 151);
+	cursor: pointer;
+}
+
+.logout i {
+	position: relative;
+	left: -10%;
+	padding: 0px;
+	color: rgb(222, 21, 21)
+}

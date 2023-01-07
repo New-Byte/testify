@@ -1,9 +1,14 @@
 import React from "react";
 import styles from '../../../my-style.module.css';
 import Cookies from 'js-cookie';
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
-  console.log('Cookie: ' + Cookies.get('userData'));
+  //console.log('Cookie: ' + Cookies.get('userData'));
+  const navigate = useNavigate();
   const changeLanguage = (lang) => {
     let language;
     let d = document.getElementById(lang).innerHTML;
@@ -12,6 +17,58 @@ const Header = (props) => {
     document.getElementById(lang).id = document.getElementById('selected1').name*/
     document.getElementById('selected1').innerHTML = language;
     document.getElementById('selected1').name = lang;
+  }
+
+  const logout = async () => {
+    /*await fetch(`${process.env.REACT_APP_node_server}/backend/authentication/logout`, {
+      headers: {
+        'Authorization': `userData=${props.token}`
+      }
+    })
+    .then(
+      (response) => response.json()
+  ).then(
+      (data) => {
+          console.log(data);
+          if(data.success){
+              console.log(data.msg);
+              console.log(data.data);
+              toast.success(data.msg, {
+                  position: toast.POSITION.TOP_CENTER
+              });
+              navigate("/");
+          } else {
+              toast.error(data.msg, {
+                  position: toast.POSITION.TOP_CENTER
+              });
+          }
+      }
+   ).catch(
+      (error) => {
+          console.log(error);
+          toast.error(error.error, {
+            position: toast.POSITION.TOP_CENTER
+        });
+      }
+  );*/
+  axios.get(`${process.env.REACT_APP_node_server}/backend/authentication/logout`, { withCredentials: true })
+  .then((response) => {
+    console.log(response.data);
+    console.log(response.status);
+    if(response.status){
+      toast.success(response.data.msg, {
+        position: toast.POSITION.TOP_CENTER
+      });
+      navigate("/");
+    }
+  }).catch(
+    (error) => {
+      console.log(error);
+      toast.error(error.error, {
+        position: toast.POSITION.TOP_CENTER
+    });
+  }
+  );
   }
   return (
     <div>
@@ -40,8 +97,9 @@ const Header = (props) => {
             </div>
 
             <div className={styles.header_intro}>
-              <div className="columns">
+              <div>
                 <img src="/logo231.png" width='300px'/>
+                <p className={styles.logout} onClick={logout}><i className={"fa fa-power-off"} aria-hidden="true" title='Logout'></i>Logout</p>
               </div>
               <div className={styles.header_tabs}></div>
             </div>
