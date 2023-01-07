@@ -4,10 +4,10 @@ import Header from '../Common/Header/Header';
   
 const Home = () => {
   const location = useLocation();
-  if(location.state.user_role === 'admin'){
+  if(location.state.user_role === 'admin' || location.state.user_role === 'teacher' || location.state.user_role === 'student'){
     return (
       <div>
-        <Header user_full_name={location.state.user_full_name} token={location.state.token}/>
+        <Header user_full_name={location.state.user_full_name} access={location.state.access}/>
       </div>
     );
 

@@ -1,13 +1,11 @@
 import React from "react";
 import styles from '../../../my-style.module.css';
-import Cookies from 'js-cookie';
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
-  //console.log('Cookie: ' + Cookies.get('userData'));
   const navigate = useNavigate();
   const changeLanguage = (lang) => {
     let language;
@@ -20,37 +18,6 @@ const Header = (props) => {
   }
 
   const logout = async () => {
-    /*await fetch(`${process.env.REACT_APP_node_server}/backend/authentication/logout`, {
-      headers: {
-        'Authorization': `userData=${props.token}`
-      }
-    })
-    .then(
-      (response) => response.json()
-  ).then(
-      (data) => {
-          console.log(data);
-          if(data.success){
-              console.log(data.msg);
-              console.log(data.data);
-              toast.success(data.msg, {
-                  position: toast.POSITION.TOP_CENTER
-              });
-              navigate("/");
-          } else {
-              toast.error(data.msg, {
-                  position: toast.POSITION.TOP_CENTER
-              });
-          }
-      }
-   ).catch(
-      (error) => {
-          console.log(error);
-          toast.error(error.error, {
-            position: toast.POSITION.TOP_CENTER
-        });
-      }
-  );*/
   axios.get(`${process.env.REACT_APP_node_server}/backend/authentication/logout`, { withCredentials: true })
   .then((response) => {
     console.log(response.data);
@@ -69,6 +36,28 @@ const Header = (props) => {
     });
   }
   );
+  }
+  const Tab = (props) => {
+    return <li id={props.tab} className={styles.opt} onClick={() => changeTabs(props.tab)}><a>{props.tab}</a></li>
+  }
+  const changeTabs = (tab) => {
+    console.log('Navigatting to ' + tab);
+    let tabs = ['Home', 'Users', 'Settings', 'Students', 'Exams', 'Classes'];
+    for(let i = 0; i < 6; i++){
+      if(tabs[i]!=tab){
+        console.log(tabs[i]);
+        try{
+          document.getElementById(tabs[i]).className = `${styles.opt}`;
+
+        } catch(error){
+          console.log('IgnoredError: ' + error);
+        }
+      }
+    }
+    document.getElementById(tab).className = `${styles.active}`;
+    //active.name = 'inactive';
+    //active.className = 'opt';
+
   }
   return (
     <div>
@@ -101,7 +90,12 @@ const Header = (props) => {
                 <img src="/logo231.png" width='300px'/>
                 <p className={styles.logout} onClick={logout}><i className={"fa fa-power-off"} aria-hidden="true" title='Logout'></i>Logout</p>
               </div>
-              <div className={styles.header_tabs}></div>
+              <div className={styles.header_tabs}>
+                <ul>
+                  <li id='Home' className={styles.active} onClick={() => changeTabs('Home')}><a>Home</a></li>
+                  {props.access.tabs.map((tab) => <Tab tab={tab} />)}
+                </ul>
+              </div>
             </div>
         </div>
     </div>
